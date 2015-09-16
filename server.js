@@ -117,6 +117,19 @@ server.register(require('vision'), function (err) {
     });
 });
 
+server.register([
+    {
+        register: require("hapi-basic-i18n"),
+        options: {
+            locale_path: Path.join(__dirname, 'locales'),
+            cookie_name: "language",
+            default_language: "en",
+            available_languages: ["en", 'lt']
+        }
+    }], function (err){
+
+});
+
 server.start(function (err) {
 
     if (err) {
